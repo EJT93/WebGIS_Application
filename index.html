@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>WebGIS</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.21/esri/themes/light/main.css" />
+    <script src="https://js.arcgis.com/4.21/"></script>
+    <style>
+      html,
+      body,
+      #map {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+    <script>
+      require([
+        "esri/Map",
+        "esri/views/MapView"
+      ], function(Map, MapView) {
+        var map = new Map({
+          basemap: "topo-vector"
+        });
+
+        var view = new MapView({
+          container: "map",
+          map: map,
+          zoom: 4,
+          center: [15, 45] // longitude, latitude
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="map"></div>
+    <!-- Add this inside the <body> element -->
+    <div class="zoom-control">
+        <button id="zoom-in">+</button>
+        <button id="zoom-out">-</button>
+    </div>
+  
+  </body>
+</html>
